@@ -1,0 +1,19 @@
+# codeask configuration. Copy to codeask.toml in the repo you index.
+
+[index]
+db_path = ".codeask/index.db"
+ignore = ["node_modules/**", "dist/**", "build/**", "*.min.js", "*.lock", "vendor/**"]
+max_file_bytes = 500_000
+
+[embeddings]
+model = "BAAI/bge-small-en-v1.5"
+
+[retrieval]
+top_k = 8
+min_confidence = 0.2
+
+[llm]
+backend = "ollama"            # "ollama" or "anthropic"
+ollama_model = "qwen2.5-coder:7b"
+ollama_url = "http://localhost:11434"
+anthropic_model = "claude-sonnet-5-5"   # key read from ANTHROPIC_API_KEY
